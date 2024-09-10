@@ -1,4 +1,5 @@
-//2 Verify login is successful with correct email and password.
+// 3 Ensure login fails with incorrect email or password.
+
 package testcases;
 
 import org.openqa.selenium.By;
@@ -6,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Tc_02 {
+public class Tc_03 {
 
 	public static void main(String[] args) {
 
@@ -19,19 +20,27 @@ public class Tc_02 {
 
 		// click on Account button
 		driver.findElement(By.id("nav-link-accountList")).click();
-		
-		// Enter Valid Number
+
+		// Enter IN-Valid Number
 		WebElement mobile = driver.findElement(By.id("ap_email"));
-		mobile.sendKeys("8390942414");
+		mobile.sendKeys("1234567890");
 		driver.findElement(By.id("continue")).click();
-		
-		// Enter Valid Password
+
+		// Enter IN-Valid Password
 		WebElement password = driver.findElement(By.id("ap_password"));
-		password.sendKeys("Enter Valid Password");
+		password.sendKeys("Enter InValid Password");
 		driver.findElement(By.id("signInSubmit")).click();
-		
-		
+
+		String Title = driver.getTitle();
+		if (Title == "Account Login Successfull") {
+
+			System.out.println("Test CAses Failed !");
+		} else {
+			System.out.println("Test Cases Passed !");
+		}
+
 		driver.close();
+
 	}
 
 }

@@ -18,7 +18,7 @@ public class Tc_01 {
 		// go to the Amazon Url
 		driver.get("https://www.amazon.in/");
 
-		// click on Account button 
+		// click on Account button
 		driver.findElement(By.id("nav-link-accountList")).click();
 		
 		// click on create account button
